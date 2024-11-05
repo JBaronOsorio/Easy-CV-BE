@@ -1,18 +1,11 @@
-document.getElementById('cvForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-  
-    // Obtener los datos del formulario
-    let cvData = {
-      nombre: document.getElementById('nombre').value,
-      apellido: document.getElementById('apellido').value,
-      email: document.getElementById('email').value,
-      experiencia: document.getElementById('experiencia').value,
-      educacion: document.getElementById('educacion').value
-    };
-  
-    // Guardar los datos en el almacenamiento local
-    chrome.storage.local.set({cvData: cvData}, function() {
-      document.getElementById('status').textContent = 'Datos guardados correctamente.';
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('registerButton').addEventListener('click', function() {
+      // Redirect to signup page
+      chrome.tabs.create({ url: 'http://127.0.0.1:8000/create-profile/' });
   });
-  
+
+  document.getElementById('loginButton').addEventListener('click', function() {
+      // Redirect to login page
+      chrome.tabs.create({ url: 'http://127.0.0.1:8000/create-profile/' });
+  });
+});
