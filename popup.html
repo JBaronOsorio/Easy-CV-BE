@@ -40,6 +40,10 @@
         .btn:hover {
             background-color: #0056b3;
         }
+
+        #welcomeMessage {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +51,12 @@
         <h1>Bienvenido a Easy CV!</h1>
         <button id="registerButton" class="btn">Registrarse</button>
         <button id="loginButton" class="btn">Iniciar sesión</button>
+
+        <!-- Mensaje de bienvenida y botón de autocompletar que se muestran al iniciar sesión -->
+        <div id="welcomeMessage">
+            <p>Bienvenido usuario</p>
+            <button id="autofillButton" class="btn">Autocompletar campos</button>
+        </div>
     </div>
 
     <!-- Link to the JavaScript file -->
