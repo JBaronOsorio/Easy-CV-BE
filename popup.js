@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Botón de registro
-  document.getElementById('registerButton').addEventListener('click', function() {
+  const registerButton = document.getElementById('registerButton');
+  registerButton.addEventListener('click', function() {
       chrome.tabs.create({ url: 'http://127.0.0.1:8000/create-profile/' });
   });
 
@@ -13,6 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
       // Oculta el botón "Iniciar sesión" y muestra el mensaje de bienvenida
       document.getElementById('loginButton').style.display = 'none';
       document.getElementById('welcomeMessage').style.display = 'block';
+
+      // Cambia el botón de "Registrarse" por "Mis datos"
+      registerButton.textContent = 'Mis datos';
+      registerButton.removeEventListener('click', openRegisterPage); // Quita el evento anterior
+      registerButton.addEventListener('click', function() {
+        chrome.tabs.create({ url: 'http://127.0.0.1:8000/create-profile/' });
+      });
     } else {
       console.log("Error: Consulta fallida");
     }
